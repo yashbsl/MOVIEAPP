@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from '../../utils/axios'
 
 function Sidenav() {
+
   return (
     <div className="w-[20%] h-full border-r-2 border-zinc-400 p-10">
 
