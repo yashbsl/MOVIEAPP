@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sidenav from "./templates/Sidenav";
 import Topnav from "./templates/Topnav";
 import axios from "../utils/axios";
+import Header from "./templates/Header";
 
 function Home() {
   document.title = "MovieApp | Home";
@@ -16,21 +17,21 @@ function Home() {
       console.log("Error:", error);
     }
   };
-  console.log(wallpaper);
 
   useEffect(() => { 
     !wallpaper && GetHeaderWallpaper();
   }, []);
 
-  return (
+  return wallpaper? (
     <>
       <Sidenav />
 
       <div className="w-[80%] h-full">
         <Topnav />
+        <Header data={wallpaper} />
       </div>
     </>
-  );
+  ): <h1>Loading</h1>
 }
 
 export default Home;
