@@ -5,35 +5,38 @@ import axios from "../utils/axios";
 import Header from "./templates/Header";
 import HorizontalCards from "./templates/HorizontalCards";
 import { data } from "react-router-dom";
+import Dropdown from "./templates/Dropdown";
+import Loading from "./Loading";
 
 function Home() {
   document.title = "MovieApp | Home";
   const [wallpaper, setwallpaper] = useState(null);
-  const [Trending, setTrending] = useState(null)
+  const [Trending, setTrending] = useState(null);
+  const [category, setcategory] = useState("all");
 
   const GetHeaderWallpaper = async () => {
     try {
       const { data } = await axios.get(`/trending/all/day`);
-      let randomdata = data.results[Math.floor(Math.random() * data.results.length)];
+      let randomdata =
+        data.results[Math.floor(Math.random() * data.results.length)];
       setwallpaper(randomdata);
     } catch (error) {
       console.log("Error:", error);
     }
   };
 
-    const GetTrending = async () => {
+  const GetTrending = async () => {
     try {
-      const { data } = await axios.get(`/trending/all/day`);
+      const { data } = await axios.get(`/trending/${category}/day`);
       setTrending(data.results);
     } catch (error) {
       console.log("Error:", error);
     }
-  };  
-  useEffect(() => { 
+  };
+  useEffect(() => {
     !wallpaper && GetHeaderWallpaper();
-    !Trending && GetTrending();
-  }, []);
-  // console.log(Trending);
+    GetTrending();
+  }, [category]);
 
   return wallpaper && Trending ? (
     <>
@@ -42,10 +45,21 @@ function Home() {
       <div className="w-[80%] h-full overflow-auto overflow-x-hidden">
         <Topnav />
         <Header data={wallpaper} />
-        <HorizontalCards data={Trending}/>
+        <div className="p-5 flex justify-between ">
+          <h1 className="text-3xl  font-semibold text-zinc-400 ">Trending</h1>
+          <Dropdown
+            title="Filter"
+            options={["tv", "movie", "all"]}
+            func={(e)=>setcategory(e.target.value)}
+          />
+        </div>
+        <HorizontalCards data={Trending} />
       </div>
     </>
-  ): <h1>Loading</h1>
+  ) : (
+    <Loading/>
+  );
 }
 
 export default Home;
+ 

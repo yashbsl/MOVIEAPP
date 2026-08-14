@@ -3,16 +3,8 @@ import Dropdown from "./Dropdown";
 
 const HorizontalCards = ({ data }) => {
   return (
-    <div className="w-full h-[40vh] p-5">
-      <div className="mb-5 flex justify-between ">
-        <h1 className="text-3xl font-semibold text-zinc-400 ">Trending</h1>
-
-        <Dropdown title="Filter" options={["tv", "movie", "all"]} func={" "} />
-      </div>
-       
-
-
-      <div className="w-[100%] flex h-[40vh] overflow-y-hidden overflow-x-auto">
+    <div>
+      <div className="w-[100%] mb-5 p-5 flex h-[40vh] overflow-y-hidden overflow-x-auto">
         {data.map((d, i) => (
           <div
             key={i}
