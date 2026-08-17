@@ -8,7 +8,7 @@ import Trending from './Components/Trending'
 
 function App() {
   return (
-    <div className="bg-[#1F1E24] flex w-screen h-screen overflow-hidden">
+    <div className="bg-[#1F1E24] flex w-screen h-screen">
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/trending" element={<Trending/>} />
