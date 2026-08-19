@@ -24,22 +24,34 @@ function Sidenav() {
           Trending
         </Link>
 
-        <Link className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-2">
+        <Link
+          to="/popular"
+          className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-2"
+        >
           <i className="ri-bard-fill mr-2"></i>
           Popular
         </Link>
 
-        <Link className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-2">
+        <Link
+          to="/movie"
+          className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-2"
+        >
           <i className="ri-movie-2-fill mr-2"></i>
           Movies
         </Link>
 
-        <Link className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-2">
+        <Link
+          to="/tvshows"
+          className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-2"
+        >
           <i className="ri-tv-fill mr-2"></i>
           Tv Shows
         </Link>
 
-        <Link className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-2">
+        <Link
+          to="/people"
+          className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-2"
+        >
           <i className="ri-team-fill mr-2"></i>
           People
         </Link>
