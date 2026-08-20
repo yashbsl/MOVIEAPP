@@ -21,7 +21,7 @@ function Topnav() {
   }, [query]);
 
   return (
-    <div className="w-[70%] h-[10vh] relative flex justify-start items-center ml-[15%]">
+    <div className="w-[70%] h-[10vh] z-[100] relative flex justify-start items-center ml-[15%]">
       <i className="text-2xl text-zinc-400 ri-search-2-line"></i>
       <input
         onChange={(e) => setquery(e.target.value)}
@@ -36,7 +36,7 @@ function Topnav() {
           className="text-2xl text-zinc-400 ri-close-fill"
         ></i>
       )}
-      <div ssName="absolute z-[100] w-[55%] max-h-[50vh] bg-zinc-800 top-[90%] left-[5%] overflow-auto rounded shadow-xl">
+      <div className=" absolute w-[55%] max-h-[50vh] bg-zinc-200 top-[90%] left-[5%] overflow-auto rounded">
         {searches.map((s, i) => (
           <Link
             key={i}
